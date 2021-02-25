@@ -73,8 +73,18 @@
   color: var(--white);
 }
 
+.countdownButtonActive:hover img {
+  filter: brightness(0) invert(1);
+}
+
 .countdownButton:disabled {
   background-color: var(--white);
+  border-bottom: 4px solid var(--green);
   color: var(--text);
   cursor: not-allowed;
+}
+
+.countdownButton:disabled img {
+  width: 1.2rem;
+  margin-left: 1rem;
 }
