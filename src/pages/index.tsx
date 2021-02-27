@@ -10,6 +10,9 @@ import styles from '../styles/pages/Home.module.css';
 import { CountdownProvider } from '../context/CountdownContext';
 import { ChallengesProvider } from '../context/ChallengesContext';
 import { SideBar } from '../components/SideBar';
+import { RankingHeader } from '../components/RankingHeader';
+import { RankingTitles } from '../components/RankingTitles';
+import { RankingBoard } from '../components/RankingBoard';
 
 interface HomeProps {
   level: number;
@@ -28,11 +31,14 @@ export default function Home(props: HomeProps) {
         <Head>
           <title>Início | move.it</title>
         </Head>
-        <ExperienceBar />
+        <SideBar />
+        {/* HEADERS */}
+        {/* <ExperienceBar /> */}
+        <RankingHeader />
 
+        {/* PAGES */}
         <CountdownProvider>
-          <SideBar />
-          <section>
+          {/* <section className={styles.homeSection}>
             <div>
               <Profile />
               <CompletedChallenges />
@@ -41,6 +47,10 @@ export default function Home(props: HomeProps) {
             <div>
               <ChallengeBox />
             </div>
+          </section> */}
+          <section>
+            <RankingTitles />
+            <RankingBoard />
           </section>
         </CountdownProvider>
       </div>

@@ -1,0 +1,73 @@
+.rankingBoard {
+  margin-top: 0.5rem;
+
+  display: grid;
+  grid-template-columns: 4.5rem 1fr 12rem 9rem;
+}
+
+/* first column */
+.rankingBoard > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text);
+  background-color: var(--white);
+
+  border-radius: 5px 0 0 5px;
+}
+
+/* second column */
+.rankingBoardPerfil {
+  margin-left: 4px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+}
+
+.rankingBoardPerfil > img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.rankingBoardPerfil div {
+  margin-left: 1rem;
+}
+
+.rankingBoardPerfil div strong {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--title);
+}
+
+.rankingBoardPerfil div p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.rankingBoardPerfil div p img {
+  margin-right: 0.5rem;
+}
+
+/* third and fourth column */
+
+.rankingBoardDatas {
+  background-color: var(--white);
+  padding-top: 2.4rem;
+
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.rankingBoardDatas span {
+  color: var(--blue);
+}
+
+.rankingBoard p:nth-child(4) {
+  border-radius: 0 5px 5px 0;
+}
