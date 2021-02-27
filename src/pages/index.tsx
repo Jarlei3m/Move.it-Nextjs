@@ -9,6 +9,7 @@ import { ChallengeBox } from '../components/ChallengeBox';
 import styles from '../styles/pages/Home.module.css';
 import { CountdownProvider } from '../context/CountdownContext';
 import { ChallengesProvider } from '../context/ChallengesContext';
+import { SideBar } from '../components/SideBar';
 
 interface HomeProps {
   level: number;
@@ -30,6 +31,7 @@ export default function Home(props: HomeProps) {
         <ExperienceBar />
 
         <CountdownProvider>
+          <SideBar />
           <section>
             <div>
               <Profile />
@@ -52,9 +54,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted),
+      level: Number(level ?? 1),
+      currentExperience: Number(currentExperience ?? 0),
+      challengesCompleted: Number(challengesCompleted ?? 0),
     },
   };
 };

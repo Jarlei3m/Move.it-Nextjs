@@ -1,0 +1,99 @@
+.sideBarContainer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 7rem;
+  background-color: var(--white);
+
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideBarHeader {
+  position: absolute;
+  top: 2rem;
+}
+
+.sideBarHeader img {
+}
+
+.sideBarLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  width: 100%;
+}
+
+.sideBarLinks button {
+  background: transparent;
+  border-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem 0;
+  width: 100%;
+
+  outline-color: var(--green);
+}
+
+.sideBarLinks button img {
+  width: 2.2rem;
+}
+
+/* Active links */
+.sideBarLinks .linkActive {
+  border-left-color: var(--blue);
+  border-left-width: 4px;
+  border-right-width: 4px;
+}
+
+.sideBarLinks .linkActive img {
+  filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
+    brightness(92%) contrast(91%);
+}
+
+/* Hover links */
+.sideBarLinks button:hover {
+  border-left-color: var(--blue);
+  border-left-width: 4px;
+  border-right-width: 4px;
+}
+
+.sideBarLinks button:hover img {
+  filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
+    brightness(92%) contrast(91%);
+}
+
+/* .sideBarLinks button:hover {
+  border-left-color: var(--blue);
+  border-left-width: 4px;
+}
+
+.linkActive {
+  border-left-color: var(--blue);
+  border-left-width: 4px;
+}
+
+.sideBarLinks img {
+  cursor: pointer;
+  width: 2.2rem;
+}
+
+.sideBarLinks img:hover {
+  filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
+    brightness(92%) contrast(91%);
+}
+
+.linkActive img {
+  filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
+    brightness(92%) contrast(91%);
+} */

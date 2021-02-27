@@ -35,6 +35,24 @@ body {
   }
 }
 
+@media (max-width: 620px) {
+  html {
+    font-size: 81.25%;
+  }
+}
+
+@media (max-width: 520px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 68.75%;
+  }
+}
+
 body,
 input,
 textarea,
