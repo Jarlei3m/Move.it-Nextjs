@@ -42,11 +42,12 @@
   padding: 0.25rem 0;
   width: 100%;
 
-  outline-color: var(--green);
+  outline: none;
 }
 
 .sideBarLinks button img {
-  width: 2.2rem;
+  width: 2rem;
+  opacity: 0.5;
 }
 
 /* Active links */
@@ -57,43 +58,19 @@
 }
 
 .sideBarLinks .linkActive img {
+  opacity: 1;
   filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
     brightness(92%) contrast(91%);
 }
 
 /* Hover links */
-.sideBarLinks button:hover {
+/* .sideBarLinks button:hover {
   border-left-color: var(--blue);
   border-left-width: 4px;
   border-right-width: 4px;
 }
 
 .sideBarLinks button:hover img {
-  filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
-    brightness(92%) contrast(91%);
-}
-
-/* .sideBarLinks button:hover {
-  border-left-color: var(--blue);
-  border-left-width: 4px;
-}
-
-.linkActive {
-  border-left-color: var(--blue);
-  border-left-width: 4px;
-}
-
-.sideBarLinks img {
-  cursor: pointer;
-  width: 2.2rem;
-}
-
-.sideBarLinks img:hover {
-  filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
-    brightness(92%) contrast(91%);
-}
-
-.linkActive img {
   filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
     brightness(92%) contrast(91%);
 } */

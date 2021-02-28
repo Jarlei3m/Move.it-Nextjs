@@ -1,17 +1,13 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ChallengeBox } from '../components/ChallengeBox';
-// Home components
-import { CompletedChallenges } from '../components/CompletedChallenges';
-import { Countdown } from '../components/Countdown';
-import { ExperienceBar } from '../components/ExperienceBar';
-import { Profile } from '../components/Profile';
+import { RankingBoard } from '../components/RankingBoard';
+// Ranking components
+import { RankingHeader } from '../components/RankingHeader';
+import { RankingTitles } from '../components/RankingTitles';
 //Sidebar Component
 import { SideBar } from '../components/SideBar';
 import { ChallengesProvider } from '../context/ChallengesContext';
-// Context components
-import { CountdownProvider } from '../context/CountdownContext';
 import styles from '../styles/pages/Home.module.css';
 
 interface HomeProps {
@@ -32,21 +28,14 @@ export default function Home(props: HomeProps) {
           <title>Início | move.it</title>
         </Head>
         {/* <SideBar /> */}
-        {/* HOME */}
-        <ExperienceBar />
 
-        <CountdownProvider>
-          <section className={styles.homeSection}>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
+        {/* RANKING */}
+        <RankingHeader />
+
+        <section>
+          <RankingTitles />
+          <RankingBoard />
+        </section>
       </div>
     </ChallengesProvider>
   );
