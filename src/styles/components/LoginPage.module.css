@@ -1,0 +1,124 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+
+  margin-top: 6rem;
+}
+
+.loginPage h2 {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 2;
+
+  max-width: 12rem;
+}
+
+.loginPage div {
+  display: flex;
+  align-items: center;
+}
+
+.loginPage small {
+  color: var(--text-highlight);
+  margin-left: 4px;
+  margin-top: 4px;
+
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.loginPage small:hover {
+  color: var(--green);
+}
+
+.loginPage .msgContainer {
+  display: block;
+}
+
+.loginPage .msgContainer p {
+  margin-left: 0;
+}
+
+.socialMediaIcons {
+  font-size: 2.8rem;
+  color: var(--text-highlight);
+  opacity: 0.7;
+  gap: 1rem;
+}
+
+.socialMediaIcons img {
+  width: 2.46rem;
+}
+
+.loginContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 14rem;
+
+  cursor: pointer;
+}
+
+.loginContainer button {
+  text-align: center;
+  font-size: 1.25rem;
+
+  height: 4rem;
+  width: 10rem;
+
+  color: var(--white);
+  font-size: 1.25rem;
+  line-height: 1.5;
+
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background: linear-gradient(90deg, #4953b8 0%, rgba(73, 83, 184, 0.2) 100%);
+}
+
+.loginContainer span {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 0 5px 5px 0;
+  background-color: var(--blue-dark);
+  font-size: 2.4rem;
+  color: var(--white);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.loginContainer button svg {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+.loginContainer:hover button {
+  outline: none;
+  border: 2px solid var(--blue-dark);
+}
+
+.loginContainer:hover span {
+  background-color: var(--green);
+  opacity: 0.9;
+}
+
+/* .msgContainer, */
+.socialMediaIcons {
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.msgContainer p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-highlight);
+
+  margin-left: 1.5rem;
+}
