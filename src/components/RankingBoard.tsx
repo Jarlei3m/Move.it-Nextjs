@@ -1,53 +1,34 @@
 import styles from '../styles/components/RankingBoard.module.css';
 
-export function RankingBoard() {
+export function RankingBoard({ properties }) {
   return (
     <section className={styles.rankingContainer}>
-      <article className={styles.rankingBoard}>
-        <span>1</span>
+      {properties.map((prop, index) => {
+        return (
+          <article className={styles.rankingBoard}>
+            <span>{index + 1}</span>
 
-        <div className={styles.rankingBoardPerfil}>
-          <img src='https://github.com/jarlei3m.png' alt='Jarlei Rodrigues' />
-          <div>
-            <strong>Járlei Rodrigues</strong>
-            <p>
-              <img src='icons/level.svg' alt='Level' />
-              Level 6
+            <div className={styles.rankingBoardPerfil}>
+              <img src={prop.image} alt={prop.name} />
+              <div>
+                <strong>{prop.name}</strong>
+                <p>
+                  <img src='icons/level.svg' alt='Level' />
+                  Level {prop.level}
+                </p>
+              </div>
+            </div>
+
+            <p className={styles.rankingBoardDatas}>
+              <span>{prop.challengesCompleted}</span> completados
             </p>
-          </div>
-        </div>
 
-        <p className={styles.rankingBoardDatas}>
-          <span>127</span> completados
-        </p>
-
-        <p className={styles.rankingBoardDatas}>
-          <span>157600</span> xp
-        </p>
-      </article>
-
-      <article className={styles.rankingBoard}>
-        <span>1</span>
-
-        <div className={styles.rankingBoardPerfil}>
-          <img src='https://github.com/jarlei3m.png' alt='Jarlei Rodrigues' />
-          <div>
-            <strong>Járlei Rodrigues</strong>
-            <p>
-              <img src='icons/level.svg' alt='Level' />
-              Level 6
+            <p className={styles.rankingBoardDatas}>
+              <span>{prop.currentExperience}</span> xp
             </p>
-          </div>
-        </div>
-
-        <p className={styles.rankingBoardDatas}>
-          <span>127</span> completados
-        </p>
-
-        <p className={styles.rankingBoardDatas}>
-          <span>154000</span> xp
-        </p>
-      </article>
+          </article>
+        );
+      })}
     </section>
   );
 }
