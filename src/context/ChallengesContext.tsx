@@ -1,7 +1,9 @@
-import { createContext, useState, ReactNode, useEffect } from 'react';
 import Cookies from 'js-cookie';
+import { useSession } from 'next-auth/client';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
+import { SideBar } from '../components/SideBar';
 
 interface challenge {
   type: 'body' | 'eye';
@@ -20,6 +22,7 @@ interface ChallengesContextData {
   resetChallenge: () => void;
   finishedChallenge: () => void;
   closeModal: () => void;
+  refreshData: () => void;
 }
 
 interface ChallengesProviderProps {
@@ -27,11 +30,13 @@ interface ChallengesProviderProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  refreshData: () => void;
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({
+  refreshData,
   children,
   ...rest
 }: ChallengesProviderProps) {
@@ -44,6 +49,7 @@ export function ChallengesProvider({
   );
   const [activeChallenge, setActiveChallenge] = useState(null);
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
+  const [session] = useSession();
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
@@ -115,11 +121,13 @@ export function ChallengesProvider({
         startNewChallenge,
         resetChallenge,
         finishedChallenge,
+        refreshData,
       }}
     >
       {children}
 
       {isLevelUpModalOpen && <LevelUpModal />}
+      {session && <SideBar />}
     </ChallengesContext.Provider>
   );
 }

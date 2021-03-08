@@ -1,13 +1,11 @@
-import { SideBar } from '../components/SideBar';
-
+import { Provider } from 'next-auth/client';
 import '../styles/global.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <SideBar />
+    <Provider session={pageProps.session}>
       <Component {...pageProps} />
-    </>
+    </Provider>
   );
 }
 
