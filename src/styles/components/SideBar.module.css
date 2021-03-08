@@ -20,7 +20,8 @@
   top: 2rem;
 }
 
-.sideBarHeader img {
+.sideBarHeader svg {
+  cursor: pointer;
 }
 
 .sideBarLinks {
@@ -35,19 +36,27 @@
 .sideBarLinks button {
   background: transparent;
   border-color: transparent;
+  outline-color: transparent;
 
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.25rem 0;
   width: 100%;
-
-  outline: none;
 }
 
-.sideBarLinks button img {
-  width: 2rem;
+.sideBarLinks button svg {
+  font-size: 2rem;
+  color: var(--text);
   opacity: 0.5;
+
+  transition: all 0.2s ease-in-out;
+}
+
+/* hover effect */
+.sideBarLinks button:hover svg {
+  opacity: 1;
+  color: var(--blue);
 }
 
 /* Active links */
@@ -57,20 +66,22 @@
   border-right-width: 4px;
 }
 
-.sideBarLinks .linkActive img {
+.sideBarLinks .linkActive svg {
   opacity: 1;
-  filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
-    brightness(92%) contrast(91%);
+  color: var(--blue);
 }
 
-/* Hover links */
-/* .sideBarLinks button:hover {
-  border-left-color: var(--blue);
-  border-left-width: 4px;
-  border-right-width: 4px;
+/* loggout button  */
+.sideBarLogout {
+  position: absolute;
+  bottom: 2rem;
+  transform: rotate(180deg);
+  font-size: 2.4rem;
+  color: var(--blue);
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.sideBarLinks button:hover img {
-  filter: invert(44%) sepia(51%) saturate(4911%) hue-rotate(221deg)
-    brightness(92%) contrast(91%);
-} */
+.sideBarLogout:hover {
+  color: var(--red);
+}
