@@ -1,0 +1,35 @@
+@media (max-width: 1230px) {
+  .LoginLogo {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 1030px) {
+  .LoginLogo {
+    width: 35rem;
+  }
+}
+
+@media (max-width: 930px) {
+  .LoginLogo {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 830px) {
+  .LoginLogo {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .LoginLogo {
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    z-index: 1;
+  }
+}

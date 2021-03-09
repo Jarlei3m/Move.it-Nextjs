@@ -23,7 +23,9 @@ export function SideBar(): JSX.Element {
       Cookies.remove('level');
       Cookies.remove('currentExperience');
       Cookies.remove('challengesCompleted');
-      signOut({ callbackUrl: 'http://localhost:3000' });
+      // appmoveit - five.vercel.app;
+      // signOut({ callbackUrl: 'http://localhost:3000' });
+      signOut({ callbackUrl: 'https://appmoveit-five.vercel.app' });
     }, 300);
   }
 

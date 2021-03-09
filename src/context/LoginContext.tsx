@@ -33,8 +33,8 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
   }
 
   function handleSignIn() {
-    signIn('github', { callbackUrl: 'http://localhost:3000/home' });
-    // signIn('', { callbackUrl: 'https://appmoveit-five.vercel.app/home' });
+    // signIn('github', { callbackUrl: 'http://localhost:3000/home' });
+    signIn('', { callbackUrl: 'https://appmoveit-five.vercel.app/home' });
   }
 
   useEffect(() => {

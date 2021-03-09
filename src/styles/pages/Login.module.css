@@ -14,3 +14,27 @@
   align-content: center;
   gap: 7.5rem;
 }
+
+@media (max-width: 1230px) {
+  .container .loginSection {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 1030px) {
+  .container .loginSection {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container .loginSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container .loginSection div:nth-child(2) {
+    z-index: 2;
+  }
+}

@@ -1,3 +1,50 @@
 .LoginHeader {
   margin-top: 7rem;
 }
+
+@media (max-width: 1230px) {
+  .LoginHeader {
+    margin-top: 5rem;
+  }
+
+  .LoginHeader img {
+    width: 22rem;
+  }
+}
+
+@media (max-width: 1030px) {
+  .LoginHeader {
+    margin-top: 3rem;
+  }
+
+  .LoginHeader img {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 930px) {
+  .LoginHeader {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 830px) {
+  .LoginHeader {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .LoginHeader {
+    margin-top: 0;
+  }
+  .LoginHeader img {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .LoginHeader img {
+    width: 22rem;
+  }
+}

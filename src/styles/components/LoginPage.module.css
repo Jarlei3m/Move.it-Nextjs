@@ -64,7 +64,6 @@
 
 .loginContainer button {
   text-align: center;
-  font-size: 1.25rem;
 
   height: 4rem;
   width: 10rem;
@@ -121,4 +120,44 @@
   color: var(--text-highlight);
 
   margin-left: 1.5rem;
+}
+
+@media (max-width: 1230px) {
+  .loginPage {
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 1030px) {
+  .loginPage {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 930px) {
+  .loginPage {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 830px) {
+  .loginPage {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .loginPage {
+    margin-top: 1.5rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .loginPage {
+    margin-top: 2rem;
+  }
+  .loginPage h2 {
+    font-size: 2rem;
+  }
 }
