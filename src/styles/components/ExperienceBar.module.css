@@ -28,3 +28,15 @@ span.currentExperience {
   top: 12px;
   white-space: nowrap;
 }
+
+@media (max-width: 830px) {
+  .experienceBar {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experienceBar {
+    margin-top: 4rem;
+  }
+}

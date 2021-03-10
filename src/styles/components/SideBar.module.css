@@ -85,3 +85,50 @@
 .sideBarLogout:hover {
   color: var(--red);
 }
+
+.openSidebarBtn {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
+
+  transition: all 0.3s ease;
+}
+
+.openSidebarBtn img {
+  width: 1.5rem;
+}
+
+@media (max-width: 680px) {
+  .sideBarContainer {
+    max-width: 5rem;
+  }
+
+  .sideBarLogout {
+    font-size: 2.2rem;
+  }
+
+  .sideBarHeader img {
+    width: 3rem;
+  }
+}
+
+@media (max-width: 508px) {
+  .sideBarContainer {
+    display: none;
+    opacity: 0;
+  }
+
+  .sideBarContainer.active {
+    display: flex;
+    opacity: 0.95;
+
+    max-width: 100vw;
+  }
+
+  .openSidebarBtn.show {
+    display: block;
+    opacity: 1;
+  }
+}
