@@ -16,5 +16,11 @@
 }
 
 .rankingTitles span:nth-child(2) {
-  margin-left: 3rem;
+  margin-left: 2.5rem;
+}
+
+@media (max-width: 830px) {
+  .rankingTitles {
+    grid-template-columns: 4.5rem 12rem 12rem 9rem;
+  }
 }

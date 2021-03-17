@@ -5,3 +5,9 @@
   margin-bottom: 2.5rem;
   color: var(--title);
 }
+
+@media (max-width: 450px) {
+  .rankingHeader {
+    margin-top: 3rem;
+  }
+}
