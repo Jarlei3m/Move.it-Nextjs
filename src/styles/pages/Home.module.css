@@ -4,6 +4,7 @@
   margin: 0 auto;
   padding: 2.5rem 2rem;
 
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -19,7 +20,7 @@
 
 @media (max-width: 1230px) {
   .container {
-    max-width: 824px;
+    max-width: 51.5rem;
   }
 
   .container .homeSection {
@@ -27,9 +28,9 @@
   }
 }
 
-@media (max-width: 1030px) {
+@media (max-width: 924px) {
   .container {
-    max-width: 722px;
+    max-width: 48rem;
   }
 
   .container .homeSection {
@@ -37,15 +38,15 @@
   }
 }
 
-@media (max-width: 1030px) {
+@media (max-width: 876px) {
   .container {
-    max-width: 622px;
+    max-width: 42rem;
   }
 }
 
 @media (max-width: 830px) {
   .container {
-    max-width: 532px;
+    max-width: 40rem;
   }
 
   .container .homeSection {

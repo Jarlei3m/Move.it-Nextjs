@@ -1,13 +1,14 @@
 .rankingTitles {
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 0.9rem;
   color: var(--text);
   font-weight: bold;
   opacity: 0.5;
 
   display: grid;
-  grid-template-columns: 4.5rem 1fr 12rem 9rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: 4.5rem 1fr;
+  margin-bottom: 0.8rem;
+  gap: 4px;
 }
 
 .rankingTitles span {
@@ -15,12 +16,44 @@
   text-transform: uppercase;
 }
 
-.rankingTitles span:nth-child(2) {
-  margin-left: 2.5rem;
+.rankingTitles div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 830px) {
+.userInfo {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 1rem;
+
+  padding: 1rem 1.5rem;
+}
+
+@media (max-width: 876px) {
   .rankingTitles {
-    grid-template-columns: 4.5rem 12rem 12rem 9rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .userInfo {
+    padding: 0.5rem 1rem;
+  }
+
+  .rankingTitles {
+    font-size: 0.6rem;
+    grid-template-columns: 4rem 1fr;
+  }
+}
+
+@media (max-width: 374px) {
+  .rankingTitles {
+    font-size: 0.6rem;
+    grid-template-columns: 3.5rem 1fr;
+  }
+
+  .userInfo {
+    padding: 0.2rem 0.6rem;
   }
 }

@@ -1,8 +1,36 @@
+.rankingContainer {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rankingContainer .rankingBoard:first-child {
+  margin-top: 0;
+}
+
 .rankingBoard {
   margin-top: 0.5rem;
+  width: 100%;
+  max-width: 60rem;
 
   display: grid;
-  grid-template-columns: 4.5rem 1fr 12rem 9rem;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 4px;
+}
+
+.rankingBoardInfo {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+
+  width: 100%;
+
+  background-color: var(--white);
 }
 
 /* first column */
@@ -21,21 +49,17 @@
 
 /* second column */
 .rankingBoardPerfil {
-  margin-left: 4px;
-  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
-  background-color: var(--white);
+  justify-content: left;
 }
 
 .rankingBoardPerfil > img {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-}
 
-.rankingBoardPerfil div {
-  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .rankingBoardPerfil div strong {
@@ -57,7 +81,9 @@
 
 .rankingBoardDatas {
   background-color: var(--white);
-  padding-top: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 
   font-size: 1rem;
   font-weight: 500;
@@ -66,8 +92,96 @@
 
 .rankingBoardDatas span {
   color: var(--blue);
+  margin-right: 4px;
 }
 
-.rankingBoard p:nth-child(4) {
+.rankingBoard p:last-child {
   border-radius: 0 5px 5px 0;
+}
+
+@media (max-width: 876px) {
+  .rankingBoard > span {
+    font-size: 1.2rem;
+  }
+
+  .rankingBoardPerfil > img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .rankingBoardPerfil div strong {
+    font-size: 1rem;
+  }
+
+  .rankingBoardPerfil div p {
+    font-size: 0.8rem;
+  }
+
+  .rankingBoardDatas {
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rankingBoardPerfil div p img {
+    width: 10%;
+  }
+}
+
+@media (max-width: 425px) {
+  .rankingBoard {
+    grid-template-columns: 4rem 1fr;
+  }
+
+  .rankingBoardInfo {
+    padding: 0.5rem 1rem;
+  }
+
+  .rankingBoardPerfil > img {
+    margin-right: 0.8rem;
+  }
+
+  .rankingBoardPerfil div strong {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 374px) {
+  .rankingBoard > span {
+    font-size: 1rem;
+  }
+
+  .rankingBoard {
+    grid-template-columns: 3.5rem 1fr;
+  }
+
+  .rankingBoardInfo {
+    padding: 0.3rem 0.6rem;
+  }
+
+  .rankingBoardPerfil > img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.6rem;
+  }
+
+  .rankingBoardPerfil div strong {
+    font-size: 0.7rem;
+  }
+
+  .rankingBoardPerfil div p {
+    font-size: 0.6rem;
+  }
+
+  .rankingBoardPerfil div p img {
+    width: 18%;
+    margin-right: 0.3rem;
+  }
+
+  .rankingBoardDatas {
+    font-size: 0.7rem;
+  }
 }

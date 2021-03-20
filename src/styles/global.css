@@ -40,18 +40,6 @@ body {
     font-size: 81.25%;
   }
 }
-/* 
-@media (max-width: 520px) {
-  html {
-    font-size: 78%;
-  }
-}
-
-@media (max-width: 480px) {
-  html {
-    font-size: 68.75%;
-  }
-} */
 
 body,
 input,
