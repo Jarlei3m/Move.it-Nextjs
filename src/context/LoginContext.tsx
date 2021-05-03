@@ -28,7 +28,7 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
   const [email, setEmail] = useState(rest.email);
   const [hasGithubProfile, setHasGithubProfile] = useState(true);
 
-  function changeLoginMethod(action) {
+  function changeLoginMethod(action: boolean) {
     setHasGithubProfile(action);
   }
 

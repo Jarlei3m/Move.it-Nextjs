@@ -23,8 +23,8 @@ export default (req: NowRequest, res: NowResponse) =>
       }),
     ],
 
-    // debug: process.env.NODE_ENV === 'development',
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
+    // debug: true,
     secret: process.env.AUTH_SECRET,
     jwt: {
       secret: process.env.JWT_SECRET,

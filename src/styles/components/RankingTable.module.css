@@ -1,0 +1,121 @@
+.tableContainer table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+}
+
+.tableContainer table th {
+  font-size: 0.875rem;
+  line-height: 0.9rem;
+  color: var(--text);
+  font-weight: bold;
+  opacity: 0.5;
+  text-transform: uppercase;
+  text-align: left;
+  padding-bottom: 1.5rem;
+}
+
+.tableContainer table th:first-child {
+  width: 4.5rem;
+  margin-right: 0.25rem;
+}
+
+.tableContainer table th:not(:first-child) {
+  padding-left: 1.5rem;
+}
+
+.tableContainer table td {
+  border: 0;
+  height: 6rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--white);
+}
+
+/* first column */
+.tableContainer table td:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 6rem;
+  width: 4.5rem;
+  margin-right: 0.25rem;
+
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 5px 0 0 5px;
+}
+
+/* second column */
+.userInfo div {
+  display: flex;
+  align-items: center;
+}
+
+.userInfo div > img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: center;
+
+  background: var(--background);
+
+  margin-right: 1rem;
+}
+
+.userInfo div strong {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--title);
+}
+
+.userInfo div p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.userInfo div p img {
+  margin-right: 0.5rem;
+}
+
+/* third and fourth column */
+.tableContainer table td:nth-child(3),
+.tableContainer table td:nth-child(4) {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.tableContainer table td:nth-child(3) span,
+.tableContainer table td:nth-child(4) span {
+  color: var(--blue);
+  margin-right: 4px;
+}
+
+.tableContainer table td:nth-child(4) {
+  border-radius: 0 5px 5px 0;
+}
+
+@media (max-width: 885px) {
+  .tableContainer table th {
+    font-size: 0.75rem;
+  }
+
+  .userInfo div strong {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .userInfo div p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableContainer {
+    overflow: auto;
+  }
+}
