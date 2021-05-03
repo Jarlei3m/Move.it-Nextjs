@@ -10,10 +10,10 @@ import styles from '../styles/pages/Leaderboard.module.css';
 import { connectToDatabase } from './api/profiles';
 
 interface userProps {
-  challengesCompleted: number;
-  currentExperience: number;
+  challengesCompleted: string;
+  currentExperience: string;
   image: string;
-  level: number;
+  level: string;
   name: string;
 }
 
@@ -52,16 +52,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // sort then by the highest level
   users = [...users].sort((a, b) => b.status.level - a.status.level);
 
-  // get the properties of each user
+  // get the properties from each user
   const usersData = users.map((property) => {
     const { name, image, status } = property;
     const { level, currentExperience, challengesCompleted } = status;
     return {
       name,
       image,
-      level,
-      currentExperience,
-      challengesCompleted,
+      level: String(level),
+      currentExperience: String(currentExperience),
+      challengesCompleted: String(challengesCompleted),
     };
   });
 

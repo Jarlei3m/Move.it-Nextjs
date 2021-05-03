@@ -1,10 +1,10 @@
 import styles from '../styles/components/RankingTable.module.css';
 
 interface userProps {
-  challengesCompleted: number;
-  currentExperience: number;
+  challengesCompleted: string;
+  currentExperience: string;
   image: string;
-  level: number;
+  level: string;
   name: string;
 }
 

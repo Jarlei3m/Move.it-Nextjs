@@ -41,8 +41,6 @@
 }
 
 .challengeActive {
-  height: 100%;
-
   display: flex;
   flex-direction: column;
 }
@@ -56,7 +54,8 @@
 }
 
 .challengeActive main {
-  flex: 1;
+  /* flex: 1; */
+  margin: 2.5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
