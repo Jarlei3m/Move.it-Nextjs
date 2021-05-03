@@ -49,8 +49,21 @@
   gap: 1rem;
 }
 
-.socialMediaIcons img {
-  width: 2.46rem;
+.socialMediaIcons svg {
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.socialMediaIcons svg.active {
+  color: var(--green);
+  filter: brightness(1.3);
+  transform: scale(1.1);
+}
+
+.socialMediaIcons svg:hover {
+  color: var(--green);
+  opacity: 1;
 }
 
 .loginContainer {

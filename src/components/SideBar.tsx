@@ -2,17 +2,14 @@ import Cookies from 'js-cookie';
 import { signOut } from 'next-auth/client';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useContext, useState } from 'react';
-import { ChallengesContext } from '../context/ChallengesContext';
-import styles from '../styles/components/SideBar.module.css';
+import { useState } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { FiHome } from 'react-icons/fi';
 import { GiRibbonMedal } from 'react-icons/gi';
-import { FaBars } from 'react-icons/fa';
+import styles from '../styles/components/SideBar.module.css';
 
 export function SideBar(): JSX.Element {
   const { route } = useRouter();
-  const { refreshData } = useContext(ChallengesContext);
   const [openSidebar, setOpenSidebar] = useState(false);
 
   function handleOpenSideBar() {
@@ -24,7 +21,7 @@ export function SideBar(): JSX.Element {
   }
 
   function handleSignOut() {
-    refreshData();
+    // refreshData();
     setInterval(() => {
       Cookies.remove('level');
       Cookies.remove('currentExperience');

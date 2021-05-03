@@ -43,14 +43,9 @@ export default function Home(props: HomeProps) {
     return <Redirect to='/' />;
   }
 
-  // refresh data
-  const router = useRouter();
-  const refreshData = () => router.replace(router.asPath);
-
   return (
     <LoginProvider image={props.image} name={props.name} email={props.email}>
       <ChallengesProvider
-        refreshData={refreshData}
         level={props.level}
         currentExperience={props.currentExperience}
         challengesCompleted={props.challengesCompleted}
@@ -93,9 +88,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
   const { req, res } = ctx;
+  console.log('ctx:', ctx);
 
   const { user } = await getSession({ req });
 
+  console.log('user:', user);
   const { name, image, email } = user;
 
   // database connection

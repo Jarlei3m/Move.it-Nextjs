@@ -8,7 +8,7 @@ interface LoginContextData {
   email: string;
   hasGithubProfile: boolean;
   changeLoginMethod: (action: boolean) => void;
-  handleSignIn: () => void;
+  handleSignIn: (provider: string) => void;
 }
 
 interface LoginProviderProps {
@@ -32,8 +32,9 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     setHasGithubProfile(action);
   }
 
-  function handleSignIn() {
-    signIn('github', { callbackUrl: 'http://localhost:3000/home' });
+  function handleSignIn(provider: string) {
+    console.log('função signin:', provider);
+    signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
     // signIn('', { callbackUrl: 'https://appmoveit-five.vercel.app/home' });
   }
 

@@ -17,14 +17,14 @@ export default (req: NowRequest, res: NowResponse) =>
         clientId: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
       }),
-      Providers.LinkedIn({
-        clientId: process.env.LINKEDIN_CLIENT_ID,
-        clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
+      Providers.Google({
+        clientId: process.env.GOOGLE_ID,
+        clientSecret: process.env.GOOGLE_SECRET,
       }),
     ],
 
-    debug: process.env.NODE_ENV === 'development',
-    // debug: true,
+    // debug: process.env.NODE_ENV === 'development',
+    debug: true,
     secret: process.env.AUTH_SECRET,
     jwt: {
       secret: process.env.JWT_SECRET,

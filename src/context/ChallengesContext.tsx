@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import { useSession } from 'next-auth/client';
+import { useRouter } from 'next/router';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
@@ -22,7 +23,6 @@ interface ChallengesContextData {
   resetChallenge: () => void;
   finishedChallenge: () => void;
   closeModal: () => void;
-  refreshData: () => void;
 }
 
 interface ChallengesProviderProps {
@@ -30,13 +30,11 @@ interface ChallengesProviderProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
-  refreshData: () => void;
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({
-  refreshData,
   children,
   ...rest
 }: ChallengesProviderProps) {
@@ -121,7 +119,6 @@ export function ChallengesProvider({
         startNewChallenge,
         resetChallenge,
         finishedChallenge,
-        refreshData,
       }}
     >
       {children}
