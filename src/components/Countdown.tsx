@@ -1,4 +1,5 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AiFillCaretRight } from 'react-icons/ai';
 import { CountdownContext } from '../context/CountdownContext';
 import styles from '../styles/components/Countdown.module.css';
 
@@ -8,6 +9,7 @@ export function Countdown() {
     isActive,
     minutes,
     seconds,
+    percentToTimeout,
     resetCountdown,
     startCountdown,
   } = useContext(CountdownContext);
@@ -44,6 +46,12 @@ export function Countdown() {
             >
               Abandonar ciclo
               <img src='icons/close.svg' alt='close' />
+              <div className={styles.timeBar}>
+                <div
+                  className={styles.percentToTimeoutBar}
+                  style={{ width: `${percentToTimeout}%` }}
+                ></div>
+              </div>
             </button>
           ) : (
             <button
@@ -51,7 +59,7 @@ export function Countdown() {
               className={styles.countdownButton}
               onClick={startCountdown}
             >
-              Iniciar um ciclo
+              Iniciar um ciclo <AiFillCaretRight />
             </button>
           )}
         </>
