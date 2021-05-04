@@ -158,7 +158,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   // status update
   if (level && currentExperience && challengesCompleted) {
-    console.log('atualizando!');
     await collection.findOneAndUpdate(
       { _id: _id },
       {

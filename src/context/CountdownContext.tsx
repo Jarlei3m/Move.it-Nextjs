@@ -28,7 +28,7 @@ let countdownTimeout: NodeJS.Timeout;
 export function CountdownProvider({ children }: CountdownProviderProps) {
   const { startNewChallenge } = useContext(ChallengesContext);
 
-  const [time, setTime] = useState(25 * 60);
+  const [time, setTime] = useState(0.25 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
@@ -36,10 +36,10 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
 
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
-  const totalTime = 25 * 60;
+  const totalTime = 0.25 * 60;
 
   function startCountdown() {
-    setTime(25 * 60);
+    setTime(0.25 * 60);
     setIsActive(true);
   }
 
@@ -47,7 +47,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     clearTimeout(countdownTimeout);
     setIsActive(false);
     setHasFinished(false);
-    setTime(25 * 60);
+    setTime(0.25 * 60);
   }
 
   useEffect(() => {
@@ -61,6 +61,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
       setHasFinished(true);
       setIsActive(false);
       startNewChallenge();
+      setPercentToTimeout(0);
     }
   }, [isActive, time]);
 

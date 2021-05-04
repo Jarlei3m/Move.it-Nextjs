@@ -81,7 +81,7 @@ export function ChallengesProvider({
 
     new Audio('/notification.mp3').play;
 
-    if (Notification.permission === 'granted') {
+    if (Notification.permission === 'granted' && window.innerWidth > 425) {
       new Notification('Novo desafio ☺', {
         body: `Valendo ${challenge.amount}xp!`,
       });
