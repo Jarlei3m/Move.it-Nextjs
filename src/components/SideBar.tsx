@@ -3,7 +3,7 @@ import { signOut } from 'next-auth/client';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
-import { AiOutlineLogout } from 'react-icons/ai';
+import { AiOutlinePoweroff } from 'react-icons/ai';
 import { FiHome } from 'react-icons/fi';
 import { GiRibbonMedal } from 'react-icons/gi';
 import { ChallengesContext } from '../context/ChallengesContext';
@@ -65,7 +65,7 @@ export function SideBar(): JSX.Element {
           </Link>
         </div>
         <div className={styles.sideBarLogout}>
-          <AiOutlineLogout onClick={() => handleSignOut()} />
+          <AiOutlinePoweroff onClick={() => handleSignOut()} />
         </div>
       </aside>
       <aside>
