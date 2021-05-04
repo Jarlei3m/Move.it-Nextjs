@@ -23,6 +23,7 @@ interface ChallengesContextData {
   resetChallenge: () => void;
   finishedChallenge: () => void;
   closeModal: () => void;
+  refreshData: () => void;
 }
 
 interface ChallengesProviderProps {
@@ -30,11 +31,13 @@ interface ChallengesProviderProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  refreshData: () => void;
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({
+  refreshData,
   children,
   ...rest
 }: ChallengesProviderProps) {
@@ -119,6 +122,7 @@ export function ChallengesProvider({
         startNewChallenge,
         resetChallenge,
         finishedChallenge,
+        refreshData,
       }}
     >
       {children}

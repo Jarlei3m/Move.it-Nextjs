@@ -1,10 +1,10 @@
 import styles from '../styles/components/RankingTable.module.css';
 
 interface userProps {
-  challengesCompleted: string;
-  currentExperience: string;
+  challengesCompleted: number;
+  currentExperience: number;
   image: string;
-  level: string;
+  level: number;
   name: string;
 }
 
@@ -41,16 +41,22 @@ export function RankingTable({ usersData }: tableProps) {
                       <strong>{user.name}</strong>
                       <p>
                         <img src='icons/level.svg' alt='Level' />
-                        Level {user.level}
+                        Level {user.level ? user.level : 1}
                       </p>
                     </span>
                   </div>
                 </td>
                 <td>
-                  <span>{user.challengesCompleted ?? '0'}</span> Completados
+                  <span>
+                    {user.challengesCompleted ? user.challengesCompleted : 0}
+                  </span>{' '}
+                  Completados
                 </td>
                 <td>
-                  <span>{user.currentExperience ?? '0'}</span> xp
+                  <span>
+                    {user.currentExperience ? user.currentExperience : 0}
+                  </span>{' '}
+                  xp
                 </td>
               </tr>
             );

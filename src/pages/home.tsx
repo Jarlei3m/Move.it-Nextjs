@@ -25,7 +25,7 @@ interface HomeProps {
   name: string;
   image: string;
   email: string;
-  accessDenied: boolean;
+  accessDenied?: boolean;
 }
 
 function Redirect({ to }) {
@@ -43,9 +43,14 @@ export default function Home(props: HomeProps) {
     return <Redirect to='/' />;
   }
 
+  // refresh data
+  const router = useRouter();
+  const refreshData = () => router.replace(router.asPath);
+
   return (
     <LoginProvider image={props.image} name={props.name} email={props.email}>
       <ChallengesProvider
+        refreshData={refreshData}
         level={props.level}
         currentExperience={props.currentExperience}
         challengesCompleted={props.challengesCompleted}
@@ -87,12 +92,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       },
     };
   }
-  const { req, res } = ctx;
-  console.log('ctx:', ctx);
+  // const { req, res } = ctx;
 
-  const { user } = await getSession({ req });
+  const { user } = session;
 
-  console.log('user:', user);
   const { name, image, email } = user;
 
   // database connection
@@ -141,10 +144,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   // get updated cookies when in session
   const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
-
   // when user already exists, on his first login update cookies with status from DB
-  const { status } = userExists;
   const { image: DBImage } = userExists;
+  const { status } = userExists;
   const {
     level: DBLevel,
     currentExperience: DBCurrentExperience,
@@ -155,16 +157,19 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { _id } = userExists;
 
   // status update
-  await collection.findOneAndUpdate(
-    { _id: _id },
-    {
-      $set: {
-        'status.level': level,
-        'status.currentExperience': currentExperience,
-        'status.challengesCompleted': challengesCompleted,
-      },
-    }
-  );
+  if (level && currentExperience && challengesCompleted) {
+    console.log('atualizando!');
+    await collection.findOneAndUpdate(
+      { _id: _id },
+      {
+        $set: {
+          'status.level': level,
+          'status.currentExperience': currentExperience,
+          'status.challengesCompleted': challengesCompleted,
+        },
+      }
+    );
+  }
 
   return {
     props: {

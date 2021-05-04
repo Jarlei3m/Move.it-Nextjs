@@ -35,7 +35,7 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
   function handleSignIn(provider: string) {
     console.log('função signin:', provider);
     signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
-    // signIn('', { callbackUrl: 'https://appmoveit-five.vercel.app/home' });
+    // signIn(provider, { callbackUrl: 'https://appmoveit-five.vercel.app/home' });
   }
 
   useEffect(() => {
