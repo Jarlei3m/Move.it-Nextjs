@@ -6,9 +6,8 @@ interface LoginContextData {
   name: string;
   image: string;
   email: string;
-  hasGithubProfile: boolean;
-  changeLoginMethod: (action: boolean) => void;
   handleSignIn: (provider: string) => void;
+  isLoading: boolean;
 }
 
 interface LoginProviderProps {
@@ -16,6 +15,7 @@ interface LoginProviderProps {
   name: string;
   image: string;
   email: string;
+  isLoading: boolean;
 }
 
 export const LoginContext = createContext({} as LoginContextData);
@@ -26,17 +26,22 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
   const [name, setName] = useState(rest.name);
   const [image, setImage] = useState(rest.image);
   const [email, setEmail] = useState(rest.email);
-  const [hasGithubProfile, setHasGithubProfile] = useState(true);
 
-  function changeLoginMethod(action: boolean) {
-    setHasGithubProfile(action);
-  }
+  const [isLoading, setIsLoading] = useState(false);
 
-  function handleSignIn(provider: string) {
-    console.log('função signin:', provider);
-    signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
-    // signIn(provider, { callbackUrl: 'https://appmoveit-five.vercel.app/home' });
-  }
+  const handleSignIn = async (provider: string) => {
+    setIsLoading(true);
+    try {
+      if (provider) {
+        await signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
+        // await signIn(provider, { callbackUrl: 'https://appmoveit-five.vercel.app/home' });
+      } else {
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     if (session) {
@@ -54,12 +59,11 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
   return (
     <LoginContext.Provider
       value={{
-        hasGithubProfile,
-        changeLoginMethod,
         handleSignIn,
         name,
         image,
         email,
+        isLoading,
       }}
     >
       {children}
