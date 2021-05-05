@@ -11,7 +11,6 @@ import styles from '../styles/components/SideBar.module.css';
 
 export function SideBar(): JSX.Element {
   const { route } = useRouter();
-  const { refreshData } = useContext(ChallengesContext);
   const [openSidebar, setOpenSidebar] = useState(false);
 
   function handleOpenSideBar() {
@@ -23,7 +22,6 @@ export function SideBar(): JSX.Element {
   }
 
   function handleSignOut() {
-    refreshData();
     setTimeout(() => {
       Cookies.remove('level');
       Cookies.remove('currentExperience');
@@ -44,7 +42,11 @@ export function SideBar(): JSX.Element {
         }
       >
         <div className={styles.sideBarHeader}>
-          <img onClick={handleOpenSideBar} src='/sidebar-logo.png' alt='logo' />
+          <img
+            onClick={handleOpenSideBar}
+            src='/sidebar-logo.png'
+            alt='moveit-logo'
+          />
         </div>
         <div className={styles.sideBarLinks}>
           <Link href='/home'>
@@ -76,7 +78,11 @@ export function SideBar(): JSX.Element {
               : `${styles.openSidebarBtn} ${styles.show}`
           }
         >
-          <img onClick={handleOpenSideBar} src='/sidebar-logo.png' alt='logo' />
+          <img
+            onClick={handleOpenSideBar}
+            src='/sidebar-logo.png'
+            alt='moveit-logo'
+          />
         </div>
       </aside>
     </>
