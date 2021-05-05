@@ -18,7 +18,12 @@ export default function Login(props: UserLoginProps) {
         <title>Início | move.it</title>
       </Head>
 
-      <LoginProvider image={props.image} name={props.name} email={props.email}>
+      <LoginProvider
+        isLoading
+        image={props.image}
+        name={props.name}
+        email={props.email}
+      >
         <section className={styles.loginSection}>
           <div>
             <LoginLogo />
