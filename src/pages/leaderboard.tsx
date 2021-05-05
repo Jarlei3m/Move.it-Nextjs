@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 // Ranking components
 import { RankingHeader } from '../components/RankingHeader';
 import { RankingTable } from '../components/RankingTable';
-import { ChallengesProvider } from '../context/ChallengesContext';
 import { LeaderboardProvider } from '../context/LeaderboardContext';
 // Styles
 import styles from '../styles/pages/Leaderboard.module.css';
@@ -21,7 +20,7 @@ interface userProps {
   name: string;
 }
 
-interface HomeProps {
+interface LeaderboardProps {
   usersData: userProps[];
   accessDenied: boolean;
 }
@@ -36,14 +35,13 @@ function Redirect({ to }) {
   return null;
 }
 
-export default function Home({ usersData, accessDenied }: HomeProps) {
-  const router = useRouter();
-
+export default function Leaderboard({
+  usersData,
+  accessDenied,
+}: LeaderboardProps) {
   if (accessDenied) {
     return <Redirect to='/' />;
   }
-
-  console.log('router:', router);
 
   return (
     <div className={styles.container}>
@@ -85,12 +83,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // sort then by the highest level
   users = [...users].sort((a, b) => b.status.level - a.status.level);
 
-  // console.log('all users:', users);
   // get the properties from each user
   const usersData = users.map((user) => {
     const { name, image, status } = user;
     const { level, currentExperience, challengesCompleted } = status;
-    // console.log('level:', level)
     return {
       name,
       image,
@@ -99,8 +95,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       challengesCompleted: Number(challengesCompleted),
     };
   });
-
-  // console.log('usersData:', usersData);
 
   return {
     props: {

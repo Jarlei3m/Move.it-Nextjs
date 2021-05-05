@@ -18,14 +18,18 @@ import styles from '../styles/pages/Home.module.css';
 // database connection
 import { connectToDatabase } from './api/profiles';
 
-interface HomeProps {
-  level: number;
-  currentExperience: number;
+interface userProps {
   challengesCompleted: number;
-  name: string;
+  currentExperience: number;
+  level: number;
   image: string;
+  name: string;
   email: string;
-  accessDenied?: boolean;
+}
+
+interface HomeProps {
+  userData: userProps;
+  accessDenied: boolean;
 }
 
 function Redirect({ to }) {
@@ -38,8 +42,8 @@ function Redirect({ to }) {
   return null;
 }
 
-export default function Home(props: HomeProps) {
-  if (props.accessDenied) {
+export default function Home({ userData, accessDenied }: HomeProps) {
+  if (accessDenied) {
     return <Redirect to='/' />;
   }
 
@@ -48,12 +52,16 @@ export default function Home(props: HomeProps) {
   const refreshData = () => router.replace(router.asPath);
 
   return (
-    <LoginProvider image={props.image} name={props.name} email={props.email}>
+    <LoginProvider
+      image={userData.image}
+      name={userData.name}
+      email={userData.email}
+    >
       <ChallengesProvider
         refreshData={refreshData}
-        level={props.level}
-        currentExperience={props.currentExperience}
-        challengesCompleted={props.challengesCompleted}
+        level={userData.level}
+        currentExperience={userData.currentExperience}
+        challengesCompleted={userData.challengesCompleted}
       >
         <div className={styles.container}>
           <Head>
@@ -92,7 +100,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       },
     };
   }
-  // const { req, res } = ctx;
 
   const { user } = session;
 
@@ -170,14 +177,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     );
   }
 
+  const userData = {
+    name: String(name),
+    image: String(image ?? DBImage),
+    email: String(email),
+    level: Number(level ?? DBLevel),
+    currentExperience: Number(currentExperience ?? DBCurrentExperience),
+    challengesCompleted: Number(challengesCompleted ?? DBChallengesCompleted),
+  };
+
   return {
-    props: {
-      name: String(name),
-      image: String(image ?? DBImage),
-      email: String(email),
-      level: Number(level ?? DBLevel),
-      currentExperience: Number(currentExperience ?? DBCurrentExperience),
-      challengesCompleted: Number(challengesCompleted ?? DBChallengesCompleted),
-    },
+    props: { userData },
   };
 };
