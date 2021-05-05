@@ -25,7 +25,7 @@ export function LoginPage() {
 
       <div className={`${styles.msgContainer}`}>
         <p>
-          Selecione e entre com a sua plataforma <br /> preferida
+          Entre com a sua plataforma <br /> preferida
         </p>
         <div className={styles.socialMediaIcons}>
           <AiFillGithub
