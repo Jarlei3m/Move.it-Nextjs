@@ -2,11 +2,10 @@ import Cookies from 'js-cookie';
 import { signOut } from 'next-auth/client';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { AiOutlinePoweroff } from 'react-icons/ai';
 import { FiHome } from 'react-icons/fi';
 import { GiRibbonMedal } from 'react-icons/gi';
-import { ChallengesContext } from '../context/ChallengesContext';
 import styles from '../styles/components/SideBar.module.css';
 
 export function SideBar(): JSX.Element {
@@ -27,8 +26,8 @@ export function SideBar(): JSX.Element {
       Cookies.remove('currentExperience');
       Cookies.remove('challengesCompleted');
       // appmoveit - five.vercel.app;
-      signOut({ callbackUrl: 'http://localhost:3000' });
-      // signOut({ callbackUrl: 'https://appmoveit-five.vercel.app' });
+      // signOut({ callbackUrl: 'http://localhost:3000' });
+      signOut({ callbackUrl: 'https://appmoveit-five.vercel.app' });
     }, 0);
   }
 

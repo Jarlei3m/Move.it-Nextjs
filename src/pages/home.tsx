@@ -56,6 +56,7 @@ export default function Home({ userData, accessDenied }: HomeProps) {
       image={userData.image}
       name={userData.name}
       email={userData.email}
+      isLoading
     >
       <ChallengesProvider
         refreshData={refreshData}

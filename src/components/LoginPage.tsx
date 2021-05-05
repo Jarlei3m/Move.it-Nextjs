@@ -8,14 +8,14 @@ import {
 import { RiFacebookCircleFill } from 'react-icons/ri';
 import { LoginContext } from '../context/LoginContext';
 import styles from '../styles/components/LoginPage.module.css';
+import { Loading } from './Loading';
 
 export function LoginPage() {
-  const { handleSignIn } = useContext(LoginContext);
+  const { handleSignIn, isLoading } = useContext(LoginContext);
 
   const [provider, setProvider] = useState('github');
 
   function handleSignInProvider(provider: string) {
-    console.log('escolha:', provider);
     setProvider(provider);
   }
 
@@ -25,7 +25,7 @@ export function LoginPage() {
 
       <div className={`${styles.msgContainer}`}>
         <p>
-          Entre com a sua plataforma <br /> preferida
+          Selecione e entre com a sua plataforma <br /> preferida
         </p>
         <div className={styles.socialMediaIcons}>
           <AiFillGithub
@@ -50,9 +50,7 @@ export function LoginPage() {
           onClick={() => handleSignIn(provider)}
         >
           <button type='button'>Sign in</button>
-          <span>
-            <AiOutlineLogin />
-          </span>
+          <span>{isLoading ? <Loading /> : <AiOutlineLogin />}</span>
         </div>
       </div>
     </div>

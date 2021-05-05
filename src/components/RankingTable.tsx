@@ -13,7 +13,6 @@ interface tableProps {
 }
 
 export function RankingTable({ usersData }: tableProps) {
-  console.log('teste:', usersData);
   return (
     <section className={styles.tableContainer}>
       <table>

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { AiFillCaretRight } from 'react-icons/ai';
 import { CountdownContext } from '../context/CountdownContext';
 import styles from '../styles/components/Countdown.module.css';

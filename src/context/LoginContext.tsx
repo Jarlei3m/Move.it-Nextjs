@@ -33,8 +33,10 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     setIsLoading(true);
     try {
       if (provider) {
-        await signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
-        // await signIn(provider, { callbackUrl: 'https://appmoveit-five.vercel.app/home' });
+        // await signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
+        await signIn(provider, {
+          callbackUrl: 'https://appmoveit-five.vercel.app/home',
+        });
       } else {
         return;
       }
