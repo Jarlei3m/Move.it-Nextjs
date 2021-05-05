@@ -1,8 +1,12 @@
 import { GetServerSideProps } from 'next';
+import { getSession } from 'next-auth/client';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 // Ranking components
 import { RankingHeader } from '../components/RankingHeader';
 import { RankingTable } from '../components/RankingTable';
+import { ChallengesProvider } from '../context/ChallengesContext';
 import { LeaderboardProvider } from '../context/LeaderboardContext';
 // Styles
 import styles from '../styles/pages/Leaderboard.module.css';
@@ -19,9 +23,28 @@ interface userProps {
 
 interface HomeProps {
   usersData: userProps[];
+  accessDenied: boolean;
 }
 
-export default function Home({ usersData }: HomeProps) {
+function Redirect({ to }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push(to);
+  }, [to]);
+
+  return null;
+}
+
+export default function Home({ usersData, accessDenied }: HomeProps) {
+  const router = useRouter();
+
+  if (accessDenied) {
+    return <Redirect to='/' />;
+  }
+
+  console.log('router:', router);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -42,6 +65,16 @@ export default function Home({ usersData }: HomeProps) {
 
 // When declared inside a Next page, allows me to choose which datas will be send from Next.js server (Node.js) to the front-end(react)
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
+
+  if (!session) {
+    return {
+      props: {
+        accessDenied: Boolean(true),
+      },
+    };
+  }
+
   // database connection
   const db = await connectToDatabase(process.env.MONGODB_URI);
   const collection = db.collection('profiles');
@@ -52,7 +85,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // sort then by the highest level
   users = [...users].sort((a, b) => b.status.level - a.status.level);
 
-  console.log('all users:', users);
+  // console.log('all users:', users);
   // get the properties from each user
   const usersData = users.map((user) => {
     const { name, image, status } = user;
@@ -67,7 +100,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   });
 
-  console.log('usersData:', usersData);
+  // console.log('usersData:', usersData);
 
   return {
     props: {
