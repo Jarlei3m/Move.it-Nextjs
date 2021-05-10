@@ -73,12 +73,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
 
-  // database connection
+  // // database connection
   const db = await connectToDatabase(process.env.MONGODB_URI);
   const collection = db.collection('profiles');
 
-  // get all users
+  // // get all users
   let users = await collection.find().sort({ level: 1 }).limit(10).toArray();
+
+  // const response = await api.get('api/users');
+  // let users = response.data;
 
   // sort then by the highest level
   users = [...users].sort((a, b) => b.status.level - a.status.level);
